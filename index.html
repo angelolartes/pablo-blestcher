@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Potencia el rendimiento de tu empresa y equipo. Coaching ejecutivo 1 a 1, team building y formación profesional con Pablo Blestcher en Buenos Aires.">
+    <!-- Meta etiquetas para vista previa en redes y WhatsApp -->
+<meta property="og:title" content="Pablo Blestcher | Coaching Empresarial & Liderazgo">
+<meta property="og:description" content="Acompaño a líderes y equipos a potenciar su rendimiento y alcanzar resultados extraordinarios.">
+<meta property="og:image" content="https://i.postimg.cc/YC8SZsTr/foto-de-pablo.jpg">
+<meta property="og:type" content="website">
+    <title>Coach Empresarial en Buenos Aires | Pablo Blestcher - Coaching Ejecutivo y Equipos</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/wyg31kb4/Chat-GPT-Image-10-ago-2026-19-54-18.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            500: '#1e293b',
+                            600: '#0f172a',
+                            800: '#020617',
+                            900: '#020617',
+                            dark: '#f8fafc'
+                        },
+                        accent: {
+                            500: '#2563eb',
+                            600: '#1d4ed8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-slate-800 selection:text-white">
+
+    <!-- ACA EMPIEZA LA PAGINA -->
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200 text-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo / Name -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="flex items-center">
+                        <img 
+                            src="https://i.postimg.cc/k5sYg5L4/123456789.jpg" 
+                            alt="Logo Coaching Empresarial" 
+                            class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border border-slate-200"
+                        />
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight block text-slate-900 leading-none">Pablo Blestcher</span>
+                        <span class="text-xs text-slate-500 font-medium tracking-wider uppercase">Crecimiento y bienestar</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                    <a href="#inicio" class="hover:text-slate-900 transition-colors">Inicio</a>
+                    <a href="#sobre-mi" class="hover:text-slate-900 transition-colors">Sobre Mí</a>
+                    <a href="#servicios" class="hover:text-slate-900 transition-colors">Servicios</a>
+                    <a href="#metodologia" class="hover:text-slate-900 transition-colors">Metodología</a>
+                    <a href="#testimonios" class="hover:text-slate-900 transition-colors">Testimonios</a>
+                    <a href="#faq" class="hover:text-slate-900 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- CTA Button Desktop -->
+                <div class="hidden md:flex items-center">
+    <a href="campo_de_coach.html" class="bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
+        <i class="fa-regular font-normal fa-calendar-check mr-2"></i>Agendar Sesión
+    </a>
+</div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 rounded-md text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-slate-100 hover:text-slate-900 font-medium text-base mobile-link">Inicio</a>
+            <a href="#sobre-mi" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-slate-100 hover:text-slate-900 font-medium text-base mobile-link">Sobre Mí</a>
+            <a href="#servicios" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-slate-100 hover:text-slate-900 font-medium text-base mobile-link">Servicios</a>
+            <a href="#metodologia" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-slate-100 hover:text-slate-900 font-medium text-base mobile-link">Metodología</a>
+            <a href="#testimonios" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-slate-100 hover:text-slate-900 font-medium text-base mobile-link">Testimonios</a>
+            <a href="#faq" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-slate-100 hover:text-slate-900 font-medium text-base mobile-link">FAQ</a>
+            <a href="#contacto" class="block text-center mt-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-xl shadow-md mobile-link">
+                Agendar Diagnóstico Gratuito
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-b from-slate-100 via-slate-50 to-white text-slate-900 relative overflow-hidden border-b border-slate-200">
+        <!-- Background Glow FX -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-300/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-blue-200/40 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="md:col-span-7 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-300 text-slate-700 text-xs sm:text-sm font-semibold mb-6 shadow-sm">
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-600 animate-pulse"></span>
+                        Coaching Ejecutivo & De Equipos
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight mb-6">
+                        Desbloquea el potencial extraordinario de tu <span class="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 bg-clip-text text-transparent">Empresa y Equipo</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed">
+                        Acompaño a personas, líderes y equipos a potenciar su rendimiento mediante entrenamientos disruptivos, coaching ejecutivo y diseño de futuro para alcanzar resultados sin precedentes. 
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#contacto" class="bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl font-bold text-base shadow-lg shadow-slate-900/10 hover:shadow-xl transition-all text-center flex items-center justify-center gap-2">
+                            <span>Agendar Llamada Estratégica</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#sobre-mi" class="border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 px-6 py-4 rounded-xl font-semibold text-base transition-all text-center flex items-center justify-center gap-2 shadow-sm">
+                            <i class="fa-regular fa-user"></i>
+                            <span>Conocer mi Historia</span>
+                        </a>
+                    </div>
+
+                    <!-- Social proof highlights -->
+                    <div class="mt-12 pt-8 border-t border-slate-200 grid grid-cols-3 gap-4 text-center md:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-slate-900">100%</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Satisfacción Garantizada</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-blue-900">+6</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Disciplinas de Coaching</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-slate-800">A.I.C.M.</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Aval Internacional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Card -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Decorative Frame -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-slate-300 to-slate-400 rounded-3xl blur-sm opacity-50"></div>
+
+                        <div class="relative bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xl">
+                            <img src="https://i.postimg.cc/YC8SZsTr/foto-de-pablo.jpg" 
+                                 alt="Pablo Blestcher - Business Coach" 
+                                 class="w-full h-96 object-cover object-top"
+                                 onerror="this.src='https://placehold.co/600x800/e2e8f0/1e293b?text=Coach+Profesional'">
+                            
+                            <div class="p-6 bg-white border-t border-slate-100">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h3 class="font-bold text-slate-900 text-lg">Pablo Blestcher</h3>
+                                        <p class="text-xs text-blue-800 font-semibold">Coaching ontológico, sistémico, PNL y Eneagrama con estrategia ejecutiva y negociación</p>
+                                    </div>
+                                    <div class="flex gap-1 text-amber-500 text-xs">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 mt-2 italic">
+                                    “¡Hay un modo de ser que tienes disponible, que hace que lo que quieres que pase, quiera también pasar contigo!”
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HE COLABORADO CON LÍDERES Y EJECUTIVOS -->
+    <section class="py-10 bg-slate-100 text-slate-600 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-6">He colaborado con líderes y ejecutivos de empresas como</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-12 opacity-80 hover:opacity-100 transition-all">
+                <span class="font-bold text-lg tracking-wider hover:text-slate-900 transition-colors"><i class="fa-solid fa-building-columns mr-2"></i>FINANCE CORP</span>
+                <span class="font-bold text-lg tracking-wider hover:text-slate-900 transition-colors"><i class="fa-solid fa-car-side mr-2"></i>AUTOMOBILI GROUP</span>
+                <span class="font-bold text-lg tracking-wider hover:text-slate-900 transition-colors"><i class="fa-solid fa-chart-line mr-2"></i>NEXUS GROUP</span>
+                <span class="font-bold text-lg tracking-wider hover:text-slate-900 transition-colors"><i class="fa-solid fa-store mr-2"></i>RETAIL PRO</span>
+                <span class="font-bold text-lg tracking-wider hover:text-slate-900 transition-colors"><i class="fa-solid fa-globe mr-2"></i>LOGIX INT</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Mí / Quién Soy -->
+    <section id="sobre-mi" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- QUIEN SOY -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold uppercase tracking-wider border border-slate-200">
+                        ¿Quién Soy?
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Hola, soy Pablo Blestcher. Acompaño a personas y equipos a alcanzar resultados extraordinarios.
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        Como Director General de Full Coaching Internacional, facilitador y formador de coaches, combino la pasión por el desarrollo humano con un enfoque creativo, disruptivo y desafiante. Soy un soñador y hacedor enfocado en transformar lo "imposible" en metas alcanzables.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        Fusiono el coaching ontológico, sistémico, PNL y Eneagrama con una visión estratégica de liderazgo ejecutivo y negociación sustentable. Me especializo en la gestión de entrenamientos de equipos (Team Building) y en acompañar procesos de autoexploración y diseño de futuro, logrando un 100% de satisfacción en mis consultantes.
+                    </p>
+
+                    <!-- Bullet points -->
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0 font-bold mt-1 text-xs">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Aval Internacional AICM</h4>
+                                <p class="text-xs text-slate-500">Director y formador en Full Coaching Internacional.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center shrink-0 font-bold mt-1 text-xs">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">100% Recomendados</h4>
+                                <p class="text-xs text-slate-500">Satisfacción garantizada en el logro de resultados.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="#contacto" class="inline-flex items-center gap-2 text-slate-900 font-bold hover:text-blue-900 transition-colors">
+                            <span>Conoce cómo puedo ayudarte</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Values Cards Grid -->
+                <div class="lg:col-span-6 grid sm:grid-cols-2 gap-6">
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl mb-4 shadow-sm">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Especialista en Team Building</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Diseño y gestión de entrenamientos experienciales para potenciar la cohesión y el rendimiento de tus equipos.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 text-white flex items-center justify-center text-xl mb-4 shadow-sm">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Coaching Integral y Disruptivo</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Integración de enfoque ontológico, sistémico, PNL y Eneagrama para un desarrollo humano profundo.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 text-white flex items-center justify-center text-xl mb-4 shadow-sm">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Liderazgo y Negociación</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Herramientas ejecutivas avanzadas para una toma de decisiones efectiva, productiva y sustentable.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl mb-4 shadow-sm">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-lg mb-2">Diseño de Futuro</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Cuestionamiento estratégico y acompañamiento paso a paso para alcanzar metas extraordinarias.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-24 bg-slate-100 text-slate-900 relative border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-slate-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 bg-white rounded-full border border-slate-300 shadow-sm">Soluciones a Medida</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-4 mb-4 text-slate-900">Servicios de Coaching & Consultoría</h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Programas diseñados según la etapa actual y los desafíos específicos de tu organización.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-8 hover:border-slate-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-sm hover:shadow-md">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center text-2xl mb-6 border border-slate-200">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-slate-900">Coaching Ejecutivo 1 a 1</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Desata tu máximo nivel de liderazgo. Un espacio exclusivo para cuestionar tus límites, tomar decisiones con total claridad y evolucionar hacia la versión de ti capaz de guiar a otros con autenticidad, templanza y firmeza.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-900"></i> Claridad absoluta: Despeja la mente y toma decisiones estratégicas con seguridad.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-900"></i> Liderazgo consciente: Inspira a tu entorno desde tu propio crecimiento y ejemplo.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-900"></i> Gestión de la presión: Convierte el estrés y los desafíos en motor de superación.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-900"></i> Impacto sostenible: Logra resultados extraordinarios cuidando tu bienestar personal.</li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" onclick="selectService('Coaching Ejecutivo 1 a 1')" class="block text-center w-full py-3 px-4 rounded-xl border border-slate-800 text-slate-900 hover:bg-slate-900 hover:text-white font-bold text-sm transition-all">
+                        Consultar Disponibilidad
+                    </a>
+                </div>
+
+                <!-- Service 2 (Featured) -->
+                <div class="bg-white border-2 border-slate-900 rounded-2xl p-8 transition-all duration-300 flex flex-col justify-between relative shadow-xl scale-105 my-2 md:my-0">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-xs font-extrabold uppercase px-4 py-1.5 rounded-full shadow-md">
+                        Más Solicitado
+                    </div>
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-slate-900 text-white flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-slate-900">Coaching Corporativo de Equipos</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                             Despierta el verdadero potencial de tu gente. Transformamos grupos divididos en equipos apasionados, unidos por una misma visión, donde la confianza, el apoyo mutuo y la superación constante son el motor de cada día.
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-700"></i> Conexión profunda: Une a tu gente tras una causa que realmente los inspire.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-700"></i> Confianza sin barreras: Rompe los roces y crea un ambiente de apoyo genuino.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-700"></i> Sentido de pertenencia: Haz que cada integrante se ponga la camiseta y dé lo mejor de sí.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-700"></i> Crecimiento compartido: Celebren juntos logros extraordinarios que trasciendan los números.</li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" onclick="selectService('Coaching de Equipos')" class="block text-center w-full py-3.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-all shadow-md">
+                        Agendar Diagnóstico
+                    </a>
+                </div>
+
+                <!-- Service 3 LISTO -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-8 hover:border-slate-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 shadow-sm hover:shadow-md">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center text-2xl mb-6 border border-slate-200">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-slate-900">Formación como Coach Profesional</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                           ¡Son 12 meses de transformación profunda en los que trabajas en tu ser, expandiendo consciencia y adquiriendo recursos de vanguardia, para llevar tus relaciones, tus resultados y tu personalidad a un nivel sin precedentes en tu vida!
+                        </p>
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-900"></i> Mentalidad imparable: Rompe límites y gana seguridad.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-900"></i> Herramientas clave: Domina la comunicación de alto impacto.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-900"></i> Relaciones fuertes: Construye vínculos más sanos y profundos.</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-900"></i> Resultados reales: Eleva tus metas a un nivel superior.</li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" onclick="selectService('Workshops Corporativos')" class="block text-center w-full py-3 px-4 rounded-xl border border-slate-800 text-slate-900 hover:bg-slate-900 hover:text-white font-bold text-sm transition-all">
+                        Solicitar Propuesta
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodología de Trabajo -->
+    <section id="metodologia" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-slate-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 bg-slate-100 rounded-full border border-slate-200">Proceso Comprobado</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 mb-4">¿Cómo Trabajamos Juntos?</h2>
+                <p class="text-slate-600 text-base">Un método estructurado en 6 pasos para garantizar una transformación profunda y resultados sostenibles.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 relative">
+                
+                <!-- Step 1 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative z-10 shadow-sm hover:shadow-md transition-all">
+                    <span class="text-4xl font-black text-slate-400 block mb-2">01</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Diagnóstico y Revelación</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Analizamos la situación actual, detectamos patrones limitantes y definimos el punto de partida real tanto a nivel personal como de equipo.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative z-10 shadow-sm hover:shadow-md transition-all">
+                    <span class="text-4xl font-black text-slate-400 block mb-2">02</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Diseño Estratégico</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Establecemos objetivos claros, diseñamos el plan de acción a medida y alineamos la visión con los resultados que querés conquistar.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative z-10 shadow-sm hover:shadow-md transition-all">
+                    <span class="text-4xl font-black text-slate-400 block mb-2">03</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Entrenamiento Experiencial</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Iniciamos las sesiones dinámicas y los procesos de autoexploración para romper límites, despejar la mente y desplegar nuevas herramientas.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative z-10 shadow-sm hover:shadow-md transition-all">
+                    <span class="text-4xl font-black text-slate-400 block mb-2">04</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Ejecución y Desafío</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Llevamos la teoría a la práctica diaria: tomamos decisiones estratégicas, mejoramos la comunicación y fortalecemos el liderazgo en tiempo real.
+                    </p>
+                </div>
+
+                 <!-- Step 5 -->
+                <div class="md:col-start-2 bg-slate-50 p-6 rounded-2xl border border-slate-200 relative z-10 shadow-sm hover:shadow-md transition-all">
+                    <span class="text-4xl font-black text-slate-400 block mb-2">05</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Medición de Impacto</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Evaluamos los avances respecto a las metas planteadas, ajustamos lo necesario y validamos el nivel de efectividad y satisfacción alcanzado.
+                    </p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 relative z-10 shadow-sm hover:shadow-md transition-all">
+                    <span class="text-4xl font-black text-slate-400 block mb-2">06</span>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Consolidación y Futuro</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Fidelizamos los nuevos hábitos, garantizamos que el crecimiento sea sustentable en el tiempo y dejamos al equipo o líder listo para escalar.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios / Casos de Éxito -->
+    <section id="testimonios" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-slate-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 bg-white rounded-full border border-slate-200 shadow-sm">Casos de Éxito</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 mb-4">Lo que Dicen los Líderes</h2>
+                <p class="text-slate-600 text-base">Historias reales de directores y gerentes que transformaron sus negocios.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex text-amber-500 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic text-sm leading-relaxed mb-6">
+                            "Tener las sesiones 1 a 1 con Pablo fue un cambio rotundo. Sentarme a trabajar de forma presencial con él me ayudó a ordenar mis prioridades, tomar decisiones clave con seguridad y destrabar desafíos de liderazgo que solo no lograba resolver. Un acompañamiento directo, humano y super práctico."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center text-sm">
+                            AM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Alejandro M.</h4>
+                            <p class="text-xs text-slate-500">Gerente General Grupo Nexus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex text-amber-500 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic text-sm leading-relaxed mb-6">
+                            "El coaching empresarial en nuestra empresa nos sirvió muchísimo. Muchas gracias a Pablo, que vino a trabajar codo a codo con nosotros: nos brindó toda su experiencia de manera super cercana, acompañándonos paso a paso tanto a los dueños como a todo el equipo de ventas directamente en el día a día."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 text-white font-bold flex items-center justify-center text-sm">
+                            MG
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Melania Gisondi</h4>
+                            <p class="text-xs text-slate-500">Fundadora de Automobili Group</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex text-amber-500 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 italic text-sm leading-relaxed mb-6">
+                            "Hacer la formación con Pablo superó todas mis expectativas. Aprender de manera presencial, con casos reales y su acompañamiento constante, me dio la confianza y las herramientas concretas que necesitaba para dar el salto y consolidarme como coach profesional."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center text-sm">
+                            LM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm">Lucía Méndez</h4>
+                            <p class="text-xs text-slate-500">Coach Ejecutiva y Consultora de Talento</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-slate-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 bg-slate-100 rounded-full border border-slate-200">Dudas Frecuentes</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-container">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn">
+                        <span>¿Necesito experiencia previa?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-600 text-sm hidden leading-relaxed border-t border-slate-200/60 pt-4">
+                        No. Arrancamos desde las bases de la carrera, avanzando hacia la certificación.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn">
+                        <span>¿Puedo ejercer profesionalmente?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-600 text-sm hidden leading-relaxed border-t border-slate-200/60 pt-4">
+                        Sí. La etapa Profesionalizante, posterior a la formativa, nos prepara para ser Coaches profesionales de altísimo nivel internacional.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn">
+                        <span>¿Quedan grabadas las clases?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-600 text-sm hidden leading-relaxed border-t border-slate-200/60 pt-4">
+                        Sí, todas las clases se graban y quedan disponibles para consulta posterior.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden">
+                    <button class="w-full text-left p-6 font-bold text-slate-900 flex justify-between items-center focus:outline-none faq-btn">
+                        <span>¿Tiene aval real?</span>
+                        <i class="fa-solid fa-chevron-down text-slate-700 transition-transform duration-300"></i>
+                    </button>
+                    <div class="px-6 pb-6 text-slate-600 text-sm hidden leading-relaxed border-t border-slate-200/60 pt-4">
+                        Sí. Triple aval: A.I.C.M., OIEP y Cámara Argentina.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto / Formulario -->
+    <section id="contacto" class="py-24 bg-slate-100 text-slate-900 relative border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-slate-800 font-bold uppercase tracking-wider text-xs px-3.5 py-1.5 bg-white rounded-full border border-slate-300 shadow-sm">Contacto Directo</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Demos el primer paso hacia la transformación de tu empresa</h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Completa el formulario para solicitar una llamada de diagnóstico gratuita de 20 minutos. Hablaremos sobre los retos actuales de tu negocio y cómo abordarlos.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 text-slate-800 flex items-center justify-center text-lg shadow-sm">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">Correo Electrónico</p>
+                                <p class="font-bold text-slate-900 text-sm">fullcoachinginternacional@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 text-emerald-600 flex items-center justify-center text-lg shadow-sm">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">WhatsApp Directo</p>
+                                <p class="font-bold text-slate-900 text-sm">+54 9 11 3766-9150</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 text-slate-800 flex items-center justify-center text-lg shadow-sm">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500">Ubicación</p>
+                                <p class="font-bold text-slate-900 text-sm">Buenos Aires, Argentina (Atención Global Online)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SOLICITAR DIAGNÓSTICO -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white border border-slate-200 p-8 sm:p-10 rounded-3xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Solicitar Sesión de Diagnóstico</h3>
+                        
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre Completo *</label>
+                                    <input type="text" id="nombre" required placeholder="Ej: Roberto Gómez" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Empresa / Organización *</label>
+                                    <input type="text" id="empresa" required placeholder="Nombre de tu empresa" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Email *</label>
+                                    <input type="email" id="email" required placeholder="roberto@empresa.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-700 mb-1">Teléfono / WhatsApp *</label>
+                                    <input type="tel" id="telefono" required placeholder="+54 9 11..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Servicio de Interés</label>
+                                <select id="service-select" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
+                                    <option value="General">Coaching en General</option>
+                                    <option value="Coaching Ejecutivo 1 a 1">Coaching 1 a 1</option>
+                                    <option value="Coaching de Equipos">Coaching Corporativo de Equipos</option>
+                                    <option value="Workshops Corporativos">Formación como Coach Profesional</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">¿Cuál es el principal reto de tu empresa hoy?</label>
+                                <textarea id="mensaje" rows="4" placeholder="Cuéntame brevemente qué te gustaría mejorar o resolver..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all text-sm sm:text-base flex items-center justify-center gap-2 text-center whitespace-normal sm:whitespace-nowrap">
+                                <i class="fa-brands fa-whatsapp text-xl text-emerald-400 shrink-0"></i>
+                                <span>Enviar Consulta por WhatsApp</span>
+                            </button>
+                        </form>
+
+                        <!-- Notification Box -->
+                        <div id="form-message" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-sm text-center font-medium">
+                            ¡Gracias por escribir! Me pondré en contacto contigo a la brevedad.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white text-slate-600 py-12 border-t border-slate-200 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-xs text-slate-500">
+                    &copy; 2026 Pablo Blestcher. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5491137669150?text=Hola%20Pablo,%20vi%20tu%20web%20y%20me%20gustaria%20agendar%20una%20sesion%20de%20coaching" 
+       target="_blank" 
+       rel="noopener"
+       aria-label="Contactar por WhatsApp"
+       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-all duration-300">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Unified JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // FAQ Accordion Toggle
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Pre-select Service in Form when clicking service cards
+        function selectService(serviceName) {
+            const select = document.getElementById('service-select');
+            if(select) {
+                select.value = serviceName;
+            }
+        }
+
+        // Integrated Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const numeroTelefono = "5491137669150";
+
+            const nombre = document.getElementById('nombre').value;
+            const empresa = document.getElementById('empresa').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const servicio = document.getElementById('service-select').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const textoMensaje = `¡Hola! Quisiera solicitar una sesión de diagnóstico.\n\n` +
+                `📌 *Nombre:* ${nombre}\n` +
+                `🏢 *Empresa:* ${empresa}\n` +
+                `✉️ *Email:* ${email}\n` +
+                `📞 *Teléfono:* ${telefono}\n` +
+                `🎯 *Servicio:* ${servicio}\n` +
+                `💬 *Reto principal:* ${mensaje || 'No especificado'}`;
+
+            const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(textoMensaje)}`;
+
+            // Mostrar mensaje de éxito y resetear formulario
+            const msgBox = document.getElementById('form-message');
+            if (msgBox) {
+                msgBox.classList.remove('hidden');
+                setTimeout(() => {
+                    msgBox.classList.add('hidden');
+                }, 6000);
+            }
+
+            event.target.reset();
+
+            // Abrir WhatsApp en nueva pestaña
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
+</body>
+</html>
