@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso a Campo de Coach | Pablo Blestcher</title>
+    <!-- Meta descripción SEO -->
+    <meta name="description" content="Portal privado de acceso para clientes y alumnos de Pablo Blestcher Coaching.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/wyg31kb4/Chat-GPT-Image-10-ago-2026-19-54-18.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-slate-800 selection:text-white">
+
+    <!-- Header / Navbar Minimalista -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200 text-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo / Nombre -->
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img 
+                        src="https://i.postimg.cc/k5sYg5L4/123456789.jpg" 
+                        alt="Logo Coaching Empresarial" 
+                        class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border border-slate-200"
+                    />
+                    <div>
+                        <span class="text-xl font-bold tracking-tight block text-slate-900 leading-none">Pablo Blestcher</span>
+                        <span class="text-xs text-slate-500 font-medium tracking-wider uppercase">Campo de Coach</span>
+                    </div>
+                </a>
+
+                <!-- Botón Volver al Inicio -->
+                <div>
+                    <a href="index.html" class="inline-flex items-center gap-2 border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 px-4 py-2 rounded-full font-semibold text-sm transition-all shadow-sm">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Volver a la Web</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content / Formulario de Login -->
+    <main class="flex-grow flex items-center justify-center pt-28 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <!-- Fondos con luz ambiental -->
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-slate-300/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-md w-full relative z-10">
+            
+            <!-- Encabezado del Portal -->
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-slate-900 text-white rounded-2xl mx-auto flex items-center justify-center text-2xl shadow-lg mb-4">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Campo de Coach</h1>
+                <p class="text-slate-600 text-sm mt-2">Ingresá a tu portal exclusivo de trabajo y recursos.</p>
+            </div>
+
+            <!-- Card de Inicio de Sesión -->
+            <div class="bg-white border border-slate-200 p-8 rounded-3xl shadow-xl">
+                
+                <form id="login-form" onsubmit="handleLogin(event)" class="space-y-5">
+
+                    <!-- Email -->
+                    <div>
+                        <label for="login-email" class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="login-email" 
+                                required 
+                                placeholder="tuemail@ejemplo.com" 
+                                class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label for="login-password" class="block text-xs font-semibold text-slate-700">Contraseña *</label>
+                            <a href="#" onclick="handleResetPassword(); return false;" class="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors">¿La olvidaste?</a>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="login-password" 
+                                required 
+                                placeholder="••••••••" 
+                                class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Recordar sesión -->
+                    <div class="flex items-center justify-between text-xs text-slate-600">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="rounded border-slate-300 text-slate-900 focus:ring-slate-800">
+                            <span>Recordarme en este dispositivo</span>
+                        </label>
+                    </div>
+
+                    <!-- Botón Entrar -->
+                    <button 
+                        type="submit" 
+                        id="btn-submit"
+                        class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all text-sm flex items-center justify-center gap-2"
+                    >
+                        <span>Ingresar al Portal</span>
+                        <i class="fa-solid fa-right-to-bracket text-xs"></i>
+                    </button>
+                </form>
+
+                <!-- Mensajes de Feedback -->
+                <div id="login-alert" class="hidden mt-4 p-3 rounded-xl text-xs text-center font-medium"></div>
+
+            </div>
+
+            <!-- Pie de ayuda / Registro -->
+            <div class="text-center mt-6 text-xs text-slate-500">
+                <p>¿Aún no tenés acceso?</p>
+                <a href="https://wa.me/5491137669150?text=Hola%20Pablo,%20quisiera%20solicitar%20acceso%20al%20Campo%20de%20Coach" target="_blank" class="font-bold text-slate-900 hover:underline">
+                    Solicitar mi usuario por WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Simple -->
+    <footer class="bg-white text-slate-500 py-6 border-t border-slate-200 text-xs text-center">
+        <p>&copy; 2026 Pablo Blestcher. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Firebase SDK (Versión 12.17.1) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+        // Configuración de tu Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhlXGxRBvJ1AfUdhyfK8sszZ742emq6SY",
+            authDomain: "email-password-29af5.firebaseapp.com",
+            projectId: "email-password-29af5",
+            storageBucket: "email-password-29af5.firebasestorage.app",
+            messagingSenderId: "16571008478",
+            appId: "1:16571008478:web:0a8d45f865cfc1de64494f",
+            measurementId: "G-KKR61PJ4EV"
+        };
+
+        // Inicializar Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Función de Inicio de Sesión
+        window.handleLogin = async function(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const alertBox = document.getElementById('login-alert');
+            const btnSubmit = document.getElementById('btn-submit');
+
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = `<span>Verificando...</span> <i class="fa-solid fa-spinner fa-spin"></i>`;
+
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                alertBox.className = "mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs text-center font-medium block";
+                alertBox.innerText = `¡Bienvenido ${user.email}! Redirigiendo...`;
+
+                setTimeout(() => {
+    window.location.href = "./dashboard.html";
+        }, 800);
+
+            } catch (error) {
+                alertBox.className = "mt-4 p-3 rounded-xl bg-red-50 border border-red-300 text-red-800 text-xs text-center font-medium block";
+                if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                    alertBox.innerText = "Usuario o contraseña incorrectos.";
+                } else {
+                    alertBox.innerText = "Error al iniciar sesión. Intenta nuevamente.";
+                }
+            } finally {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = `<span>Ingresar al Portal</span> <i class="fa-solid fa-right-to-bracket text-xs"></i>`;
+            }
+        };
+
+        // Recuperar Contraseña
+        window.handleResetPassword = async function() {
+            const email = document.getElementById('login-email').value;
+            if (!email) {
+                alert("Por favor ingresá tu correo electrónico en la casilla y volvé a hacer clic en '¿La olvidaste?'");
+                return;
+            }
+
+            try {
+                await sendPasswordResetEmail(auth, email);
+                alert("Te enviamos un correo electrónico para restablecer tu contraseña. Revisá tu bandeja de entrada o spam.");
+            } catch (error) {
+                alert("Ocurrió un error al enviar el correo: " + error.message);
+            }
+        };
+    </script>
+</body>
+</html>
