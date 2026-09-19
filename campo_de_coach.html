@@ -56,7 +56,7 @@
                 <div>
                     <a href="index.html" class="inline-flex items-center gap-2 border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 px-4 py-2 rounded-full font-semibold text-sm transition-all shadow-sm">
                         <i class="fa-solid fa-arrow-left text-xs"></i>
-                        <span>Volver a la Web</span>
+                        <span class="hidden sm:inline">Volver a la Web</span>
                     </a>
                 </div>
 
@@ -64,7 +64,7 @@
         </div>
     </header>
 
-    <!-- Main Content / Formulario de Login -->
+    <!-- Main Content / Formularios -->
     <main class="flex-grow flex items-center justify-center pt-28 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <!-- Fondos con luz ambiental -->
         <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-slate-300/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -74,86 +74,100 @@
             <!-- Encabezado del Portal -->
             <div class="text-center mb-8">
                 <div class="w-16 h-16 bg-slate-900 text-white rounded-2xl mx-auto flex items-center justify-center text-2xl shadow-lg mb-4">
-                    <i class="fa-solid fa-lock"></i>
+                    <i class="fa-solid fa-lock" id="header-icon"></i>
                 </div>
-                <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Campo de Coach</h1>
-                <p class="text-slate-600 text-sm mt-2">Ingresá a tu portal exclusivo de trabajo y recursos.</p>
+                <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight" id="header-title">Campo de Coach</h1>
+                <p class="text-slate-600 text-sm mt-2" id="header-desc">Ingresá a tu portal exclusivo de trabajo y recursos.</p>
             </div>
 
-            <!-- Card de Inicio de Sesión -->
-            <div class="bg-white border border-slate-200 p-8 rounded-3xl shadow-xl">
+            <div class="bg-white border border-slate-200 p-8 rounded-3xl shadow-xl overflow-hidden relative">
                 
-                <form id="login-form" onsubmit="handleLogin(event)" class="space-y-5">
-
-                    <!-- Email -->
-                    <div>
-                        <label for="login-email" class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                                <i class="fa-regular fa-envelope"></i>
+                <!-- ================= CONTENEDOR LOGIN ================= -->
+                <div id="login-container" class="transition-all duration-300 block">
+                    <form id="login-form" onsubmit="handleLogin(event)" class="space-y-5">
+                        <!-- Email -->
+                        <div>
+                            <label for="login-email" class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <input type="email" id="login-email" required placeholder="tuemail@ejemplo.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
                             </div>
-                            <input 
-                                type="email" 
-                                id="login-email" 
-                                required 
-                                placeholder="tuemail@ejemplo.com" 
-                                class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors"
-                            >
                         </div>
-                    </div>
 
-                    <!-- Contraseña -->
-                    <div>
-                        <div class="flex items-center justify-between mb-1">
-                            <label for="login-password" class="block text-xs font-semibold text-slate-700">Contraseña *</label>
-                            <a href="#" onclick="handleResetPassword(); return false;" class="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors">¿La olvidaste?</a>
-                        </div>
-                        <div class="relative">
-                            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                                <i class="fa-solid fa-key"></i>
+                        <!-- Contraseña -->
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <label for="login-password" class="block text-xs font-semibold text-slate-700">Contraseña *</label>
+                                <a href="#" onclick="handleResetPassword(); return false;" class="text-xs font-semibold text-slate-500 hover:text-slate-900 transition-colors">¿La olvidaste?</a>
                             </div>
-                            <input 
-                                type="password" 
-                                id="login-password" 
-                                required 
-                                placeholder="••••••••" 
-                                class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors"
-                            >
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                    <i class="fa-solid fa-key"></i>
+                                </div>
+                                <input type="password" id="login-password" required placeholder="••••••••" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
+                            </div>
                         </div>
+
+                        <!-- Botón Entrar -->
+                        <button type="submit" id="btn-submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all text-sm flex items-center justify-center gap-2">
+                            <span>Ingresar al Portal</span>
+                            <i class="fa-solid fa-right-to-bracket text-xs"></i>
+                        </button>
+                    </form>
+                    <div id="login-alert" class="hidden mt-4 p-3 rounded-xl text-xs text-center font-medium"></div>
+                    
+                    <div class="text-center mt-6 text-xs text-slate-500 border-t border-slate-100 pt-5">
+                        <p>¿Aún no tenés acceso?</p>
+                        <button onclick="toggleForm('register')" class="font-bold text-slate-900 hover:underline mt-1">
+                            Crear una cuenta gratis
+                        </button>
                     </div>
+                </div>
 
-                    <!-- Recordar sesión -->
-                    <div class="flex items-center justify-between text-xs text-slate-600">
-                        <label class="flex items-center gap-2 cursor-pointer">
-                            <input type="checkbox" class="rounded border-slate-300 text-slate-900 focus:ring-slate-800">
-                            <span>Recordarme en este dispositivo</span>
-                        </label>
+                <!-- ================= CONTENEDOR REGISTRO ================= -->
+                <div id="register-container" class="transition-all duration-300 hidden">
+                    <form id="register-form" onsubmit="handleRegister(event)" class="space-y-5">
+                        <!-- Email Registro -->
+                        <div>
+                            <label for="register-email" class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <input type="email" id="register-email" required placeholder="tuemail@ejemplo.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Contraseña Registro -->
+                        <div>
+                            <label for="register-password" class="block text-xs font-semibold text-slate-700 mb-1">Crea una Contraseña *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                                    <i class="fa-solid fa-key"></i>
+                                </div>
+                                <input type="password" id="register-password" required placeholder="Mínimo 6 caracteres" class="w-full bg-slate-50 border border-slate-300 rounded-xl pl-10 pr-4 py-3 text-slate-900 text-sm focus:outline-none focus:bg-white focus:border-slate-800 transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Botón Registrar -->
+                        <button type="submit" id="btn-register-submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all text-sm flex items-center justify-center gap-2">
+                            <span>Crear Mi Cuenta</span>
+                            <i class="fa-solid fa-user-plus text-xs"></i>
+                        </button>
+                    </form>
+                    <div id="register-alert" class="hidden mt-4 p-3 rounded-xl text-xs text-center font-medium"></div>
+
+                    <div class="text-center mt-6 text-xs text-slate-500 border-t border-slate-100 pt-5">
+                        <p>¿Ya tenés una cuenta?</p>
+                        <button onclick="toggleForm('login')" class="font-bold text-slate-900 hover:underline mt-1">
+                            Volver a Iniciar Sesión
+                        </button>
                     </div>
-
-                    <!-- Botón Entrar -->
-                    <button 
-                        type="submit" 
-                        id="btn-submit"
-                        class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 px-4 rounded-xl shadow-md transition-all text-sm flex items-center justify-center gap-2"
-                    >
-                        <span>Ingresar al Portal</span>
-                        <i class="fa-solid fa-right-to-bracket text-xs"></i>
-                    </button>
-                </form>
-
-                <!-- Mensajes de Feedback -->
-                <div id="login-alert" class="hidden mt-4 p-3 rounded-xl text-xs text-center font-medium"></div>
+                </div>
 
             </div>
-
-            <!-- Pie de ayuda / Registro -->
-            <div class="text-center mt-6 text-xs text-slate-500">
-                <p>¿Aún no tenés acceso?</p>
-                <a href="https://wa.me/5491137669150?text=Hola%20Pablo,%20quisiera%20solicitar%20acceso%20al%20Campo%20de%20Coach" target="_blank" class="font-bold text-slate-900 hover:underline">
-                    Solicitar mi usuario por WhatsApp
-                </a>
-            </div>
-
         </div>
     </main>
 
@@ -162,12 +176,38 @@
         <p>&copy; 2026 Pablo Blestcher. Todos los derechos reservados.</p>
     </footer>
 
+    <!-- Lógica de Interfaz (Cambio de Pestañas) -->
+    <script>
+        function toggleForm(type) {
+            const loginContainer = document.getElementById('login-container');
+            const registerContainer = document.getElementById('register-container');
+            const icon = document.getElementById('header-icon');
+            const title = document.getElementById('header-title');
+            const desc = document.getElementById('header-desc');
+
+            if (type === 'register') {
+                loginContainer.classList.add('hidden');
+                registerContainer.classList.remove('hidden');
+                icon.className = "fa-solid fa-user-plus";
+                title.innerText = "Crear Cuenta";
+                desc.innerText = "Registrate para acceder a tus formaciones y recursos.";
+            } else {
+                registerContainer.classList.add('hidden');
+                loginContainer.classList.remove('hidden');
+                icon.className = "fa-solid fa-lock";
+                title.innerText = "Campo de Coach";
+                desc.innerText = "Ingresá a tu portal exclusivo de trabajo y recursos.";
+            }
+        }
+    </script>
+
     <!-- Firebase SDK (Versión 12.17.1) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+        // Agregamos Firestore para poder crear el perfil
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
-        // Configuración de tu Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyBhlXGxRBvJ1AfUdhyfK8sszZ742emq6SY",
             authDomain: "email-password-29af5.firebaseapp.com",
@@ -178,11 +218,11 @@
             measurementId: "G-KKR61PJ4EV"
         };
 
-        // Inicializar Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const db = getFirestore(app);
 
-        // Función de Inicio de Sesión
+        // ================= FUNCIÓN LOGIN =================
         window.handleLogin = async function(event) {
             event.preventDefault();
             const email = document.getElementById('login-email').value;
@@ -201,8 +241,8 @@
                 alertBox.innerText = `¡Bienvenido ${user.email}! Redirigiendo...`;
 
                 setTimeout(() => {
-    window.location.href = "./dashboard.html";
-        }, 800);
+                    window.location.href = "./dashboard.html";
+                }, 800);
 
             } catch (error) {
                 alertBox.className = "mt-4 p-3 rounded-xl bg-red-50 border border-red-300 text-red-800 text-xs text-center font-medium block";
@@ -217,7 +257,53 @@
             }
         };
 
-        // Recuperar Contraseña
+        // ================= FUNCIÓN REGISTRO AUTOMÁTICO =================
+        window.handleRegister = async function(event) {
+            event.preventDefault();
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const alertBox = document.getElementById('register-alert');
+            const btnSubmit = document.getElementById('btn-register-submit');
+
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = `<span>Creando cuenta...</span> <i class="fa-solid fa-spinner fa-spin"></i>`;
+
+            try {
+                // 1. Crear el usuario en Firebase Authentication
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // 2. Crear la ficha automática del usuario en Firestore
+                await setDoc(doc(db, "usuarios", user.uid), {
+                    email: user.email,
+                    rol: "alumno",
+                    cursosComprados: [] // Empieza con el array vacío, listo para comprar o recibir cursos
+                });
+
+                alertBox.className = "mt-4 p-3 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs text-center font-medium block";
+                alertBox.innerText = `¡Cuenta creada con éxito! Ingresando...`;
+
+                // 3. Redirigir al dashboard
+                setTimeout(() => {
+                    window.location.href = "./dashboard.html";
+                }, 1200);
+
+            } catch (error) {
+                alertBox.className = "mt-4 p-3 rounded-xl bg-red-50 border border-red-300 text-red-800 text-xs text-center font-medium block";
+                if (error.code === 'auth/email-already-in-use') {
+                    alertBox.innerText = "Este correo ya está registrado. Por favor, iniciá sesión.";
+                } else if (error.code === 'auth/weak-password') {
+                    alertBox.innerText = "La contraseña es muy débil. Usá al menos 6 caracteres.";
+                } else {
+                    alertBox.innerText = "Error al crear la cuenta: " + error.message;
+                }
+            } finally {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = `<span>Crear Mi Cuenta</span> <i class="fa-solid fa-user-plus text-xs"></i>`;
+            }
+        };
+
+        // ================= FUNCIÓN RECUPERAR CLAVE =================
         window.handleResetPassword = async function() {
             const email = document.getElementById('login-email').value;
             if (!email) {
@@ -227,7 +313,7 @@
 
             try {
                 await sendPasswordResetEmail(auth, email);
-                alert("Te enviamos un correo electrónico para restablecer tu contraseña. Revisá tu bandeja de entrada o spam.");
+                alert("Te enviamos un correo electrónico para restablecer tu contraseña. Revisá tu bandeja de entrada o correo no deseado (spam).");
             } catch (error) {
                 alert("Ocurrió un error al enviar el correo: " + error.message);
             }
