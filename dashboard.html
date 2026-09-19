@@ -6,33 +6,18 @@
     <title>Panel Privado | Campo de Coach</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/wyg31kb4/Chat-GPT-Image-10-ago-2026-19-54-18.png">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
         }
     </script>
     <style>
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-        }
-        .active-nav-card {
-            border-color: #2563eb !important;
-            background-color: #eff6ff !important;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
-        }
+        .glass-nav { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); }
+        .active-nav-card { border-color: #2563eb !important; background-color: #eff6ff !important; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1); }
+        .active-admin-card { border-color: #9333ea !important; background-color: #faf5ff !important; box-shadow: 0 4px 12px rgba(147, 51, 234, 0.1); }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
@@ -41,301 +26,245 @@
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200 text-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                
-                <!-- Logo -->
                 <a href="index.html" class="flex items-center space-x-3">
-                    <img 
-                        src="https://i.postimg.cc/k5sYg5L4/123456789.jpg" 
-                        alt="Logo Coaching Empresarial" 
-                        class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border border-slate-200"
-                    />
+                    <img src="https://i.postimg.cc/k5sYg5L4/123456789.jpg" alt="Logo Coaching" class="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover border border-slate-200"/>
                     <div>
                         <span class="text-xl font-bold tracking-tight block text-slate-900 leading-none">Pablo Blestcher</span>
                         <span class="text-xs text-slate-500 font-medium tracking-wider uppercase">Portal de Miembros</span>
                     </div>
                 </a>
-
-                <!-- Desplegable del Usuario (Dropdown) -->
                 <div class="relative">
-                    <button 
-                        id="user-menu-btn" 
-                        onclick="toggleUserDropdown(event)" 
-                        class="flex items-center gap-2 bg-slate-200 hover:bg-slate-300 text-slate-800 px-4 py-2 rounded-full font-semibold text-xs transition-all"
-                    >
+                    <button id="user-menu-btn" onclick="toggleUserDropdown(event)" class="flex items-center gap-2 bg-slate-200 hover:bg-slate-300 text-slate-800 px-4 py-2 rounded-full font-semibold text-xs transition-all">
                         <i class="fa-solid fa-user"></i>
                         <span id="user-display">Cargando usuario...</span>
                         <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
                     </button>
-
-                    <!-- Menú Flotante con Opciones -->
                     <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-slate-200 py-2 z-50">
-                        <button onclick="switchTab('misCursos')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-3">
-                            <i class="fa-solid fa-graduation-cap text-slate-400 w-4"></i> Mis Cursos
-                        </button>
-                        <button onclick="switchTab('cursosGratis')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-3">
-                            <i class="fa-solid fa-gift text-slate-400 w-4"></i> Cursos Gratis
-                        </button>
-                        <button onclick="switchTab('tiendaCursos')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-3">
-                            <i class="fa-solid fa-store text-slate-400 w-4"></i> Tienda de Cursos
-                        </button>
+                        <div id="dropdown-student-options">
+                            <button onclick="switchTab('misCursos')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-3"><i class="fa-solid fa-graduation-cap text-slate-400 w-4"></i> Mis Cursos</button>
+                            <button onclick="switchTab('cursosGratis')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-3"><i class="fa-solid fa-gift text-slate-400 w-4"></i> Cursos Gratis</button>
+                            <button onclick="switchTab('tiendaCursos')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-3"><i class="fa-solid fa-store text-slate-400 w-4"></i> Tienda de Cursos</button>
+                        </div>
                         <div id="dropdown-admin-option"></div>
                         <div class="my-1 border-t border-slate-100"></div>
-                        <a href="#perfil" onclick="alert('Próximamente podrás editar tu perfil.'); return false;" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-3">
-                            <i class="fa-solid fa-user-gear text-slate-400 w-4"></i> Mi Perfil
-                        </a>
-                        <div class="my-1 border-t border-slate-100"></div>
-                        <button onclick="handleLogout()" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-red-600 hover:bg-red-50 flex items-center gap-3">
-                            <i class="fa-solid fa-right-from-bracket text-red-500 w-4"></i> Cerrar Sesión
-                        </button>
+                        <button onclick="handleLogout()" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-red-600 hover:bg-red-50 flex items-center gap-3"><i class="fa-solid fa-right-from-bracket text-red-500 w-4"></i> Cerrar Sesión</button>
                     </div>
                 </div>
-
             </div>
         </div>
     </header>
 
-    <!-- Contenido Principal -->
     <main class="flex-grow pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        
-        <!-- Saludo de Bienvenida -->
+        <!-- Saludo -->
         <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-xl mb-8 relative overflow-hidden">
             <div class="relative z-10 max-w-2xl">
-                <span class="bg-slate-800 text-slate-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block border border-slate-700">Área Privada</span>
-                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Bienvenido a tu Campo de Coach</h1>
-                <p class="text-slate-300 text-sm mt-3 leading-relaxed">
-                    Accedé a tus materiales de trabajo, herramientas de evaluación, grabaciones de sesiones y recursos estratégicos para potenciar tu desarrollo profesional.
-                </p>
+                <span id="welcome-badge" class="bg-slate-800 text-slate-300 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 inline-block border border-slate-700">Área Privada</span>
+                <h1 id="welcome-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight">Bienvenido a tu Campo de Coach</h1>
+                <p id="welcome-desc" class="text-slate-300 text-sm mt-3 leading-relaxed">Accedé a tus materiales de trabajo, herramientas de evaluación, grabaciones de sesiones y recursos estratégicos.</p>
             </div>
             <div class="absolute right-[-20px] bottom-[-40px] opacity-10 text-white text-9xl pointer-events-none hidden md:block">
-                <i class="fa-solid fa-graduation-cap"></i>
+                <i class="fa-solid fa-graduation-cap" id="welcome-icon"></i>
             </div>
         </div>
 
-        <!-- Botones Principales de Navegación -->
+        <!-- Botones Principales -->
         <div id="nav-buttons-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-            
-            <!-- Botón 1: Mis Cursos -->
-            <button 
-                id="btn-tab-misCursos" 
-                onclick="switchTab('misCursos')" 
-                class="active-nav-card bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4 cursor-pointer"
-            >
-                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <div>
-                    <h3 class="text-base font-bold text-slate-900">Mis Cursos</h3>
-                    <p class="text-slate-500 text-xs">Tu biblioteca activa de formación</p>
-                </div>
+            <button id="btn-tab-misCursos" onclick="switchTab('misCursos')" class="active-nav-card bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4 cursor-pointer">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div><h3 class="text-base font-bold text-slate-900">Mis Cursos</h3><p class="text-slate-500 text-xs">Tu biblioteca activa de formación</p></div>
             </button>
-
-            <!-- Botón 2: Cursos Gratis -->
-            <button 
-                id="btn-tab-cursosGratis" 
-                onclick="switchTab('cursosGratis')" 
-                class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4 cursor-pointer"
-            >
-                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold">
-                    <i class="fa-solid fa-gift"></i>
-                </div>
-                <div>
-                    <h3 class="text-base font-bold text-slate-900">Cursos Gratis</h3>
-                    <p class="text-slate-500 text-xs">Recursos y guías de libre acceso</p>
-                </div>
+            <button id="btn-tab-cursosGratis" onclick="switchTab('cursosGratis')" class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4 cursor-pointer">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold"><i class="fa-solid fa-gift"></i></div>
+                <div><h3 class="text-base font-bold text-slate-900">Cursos Gratis</h3><p class="text-slate-500 text-xs">Recursos y guías de libre acceso</p></div>
             </button>
-
-            <!-- Botón 3: Tienda de Cursos -->
-            <button 
-                id="btn-tab-tiendaCursos" 
-                onclick="switchTab('tiendaCursos')" 
-                class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4 cursor-pointer"
-            >
-                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold">
-                    <i class="fa-solid fa-store"></i>
-                </div>
-                <div>
-                    <h3 class="text-base font-bold text-slate-900">Tienda de Cursos</h3>
-                    <p class="text-slate-500 text-xs">Explorá nuevos programas</p>
-                </div>
+            <button id="btn-tab-tiendaCursos" onclick="switchTab('tiendaCursos')" class="bg-white border border-slate-200 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4 cursor-pointer">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold"><i class="fa-solid fa-store"></i></div>
+                <div><h3 class="text-base font-bold text-slate-900">Tienda de Cursos</h3><p class="text-slate-500 text-xs">Explorá nuevos programas</p></div>
             </button>
-
-            <!-- Botón Admin (Se inyecta dinámicamente si es admin) -->
             <div id="btn-admin-slot"></div>
-
         </div>
 
-        <!-- SECCIONES DINÁMICAS -->
+        <!-- SECCIONES ALUMNOS -->
+        <section id="sec-misCursos" class="space-y-6"><h2 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-2">Programas Asignados</h2><div id="mis-cursos-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div></section>
+        <section id="sec-cursosGratis" class="space-y-6 hidden"><h2 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-2">Material Abierto</h2><p class="text-slate-500 text-sm">Próximamente...</p></section>
+        <section id="sec-tiendaCursos" class="space-y-6 hidden"><h2 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-2">Catálogo</h2><p class="text-slate-500 text-sm">Próximamente Mercado Pago...</p></section>
 
-        <!-- SECCIÓN 1: MIS CURSOS -->
-        <section id="sec-misCursos" class="space-y-6">
-            <h2 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-2">Programas Asignados</h2>
-            <div id="mis-cursos-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <p class="text-xs text-slate-500 col-span-full">Cargando tus cursos asignados...</p>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 2: CURSOS GRATIS -->
-        <section id="sec-cursosGratis" class="space-y-6 hidden">
-            <h2 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-2">Material Abierto y Talleres</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <article class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="relative bg-slate-200 h-36 flex items-center justify-center text-slate-400">
-                            <i class="fa-solid fa-image text-3xl"></i>
-                            <span class="absolute top-3 left-3 bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Gratis</span>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-bold text-slate-900 text-sm mb-1">Introducción al Alto Rendimiento</h4>
-                            <p class="text-xs text-slate-500 mb-2">Taller Grabado</p>
-                            <p class="text-xs text-slate-600 line-clamp-2 mb-4">Fundamentos del coaching ontológico para alcanzar metas profesionales.</p>
-                            <div class="text-[11px] text-slate-500 mb-2">
-                                <span><i class="fa-regular fa-clock mr-1"></i> 45 Min</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 pt-0 flex items-center justify-between">
-                        <button onclick="alert('Abriendo taller...');" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-2 px-4 rounded-xl transition-colors">
-                            Ingresar »
-                        </button>
-                        <span class="text-xs font-bold text-amber-500"><i class="fa-solid fa-star"></i> 4.8</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 3: TIENDA DE CURSOS -->
-        <section id="sec-tiendaCursos" class="space-y-6 hidden">
-            <h2 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-2">Catálogo de Capacitaciones</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <article class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-                    <div>
-                        <div class="relative bg-slate-200 h-36 flex items-center justify-center text-slate-400">
-                            <i class="fa-solid fa-image text-3xl"></i>
-                            <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Programa</span>
-                        </div>
-                        <div class="p-4">
-                            <h4 class="font-bold text-slate-900 text-sm mb-1">Liderazgo Institucional</h4>
-                            <p class="text-xs text-slate-500 mb-2">Capacitación Completa</p>
-                            <p class="text-xs text-slate-600 line-clamp-2 mb-4">Herramientas avanzadas de gestión estratégica y dinámica de equipos.</p>
-                            <div class="text-[11px] text-slate-500 mb-2">
-                                <span><i class="fa-regular fa-clock mr-1"></i> 8 Horas</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-4 pt-0">
-                        <button onclick="alert('Próximamente Mercado Pago.');" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-2 px-4 rounded-xl transition-colors">
-                            Comprar Ahora »
-                        </button>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 4: PANEL DE ADMINISTRACIÓN (EXCLUSIVO ADMIN) -->
+        <!-- SECCIÓN ADMIN -->
         <section id="sec-panelAdmin" class="space-y-6 hidden">
             <h2 class="text-lg font-bold text-slate-900 border-b border-slate-200 pb-2 flex items-center gap-2">
-                <i class="fa-solid fa-user-shield text-purple-600"></i> Panel de Gestión de Alumnos
+                <i class="fa-solid fa-user-shield text-purple-600"></i> Centro de Control
             </h2>
 
-            <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-sm max-w-xl">
-                <h3 class="font-bold text-slate-900 text-base mb-1">Asignar Curso a Alumno</h3>
-                <p class="text-xs text-slate-500 mb-6">Ingresá el email del alumno para habilitarle el acceso a un programa.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- ASIGNAR CURSO -->
+                <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-sm lg:col-span-4 h-fit">
+                    <h3 class="font-bold text-slate-900 text-base mb-1 flex items-center gap-2"><i class="fa-solid fa-link text-blue-600"></i> Asignar Curso</h3>
+                    <p class="text-xs text-slate-500 mb-6">Ingresá el email del alumno para habilitarle el acceso.</p>
+                    <form id="form-asignar-curso" class="space-y-4">
+                        <div>
+                            <input type="email" id="admin-student-email" placeholder="ejemplo@correo.com" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none"/>
+                        </div>
+                        <div>
+                            <select id="admin-course-select" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none bg-white">
+                                <option value="">Cargando cursos...</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus-circle"></i> Asignar Acceso
+                        </button>
+                    </form>
+                    <div id="admin-status-msg" class="mt-4 text-xs font-medium hidden"></div>
+                </div>
 
-                <form id="form-asignar-curso" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Email del Alumno</label>
-                        <input 
-                            type="email" 
-                            id="admin-student-email" 
-                            placeholder="ejemplo@correo.com" 
-                            required 
-                            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none"
-                        />
+                <!-- CREADOR / EDITOR DE CURSOS -->
+                <div class="bg-white border border-purple-200 p-6 rounded-3xl shadow-sm lg:col-span-8 relative">
+                    <h3 id="form-crear-titulo" class="font-bold text-slate-900 text-base mb-1 flex items-center gap-2"><i class="fa-solid fa-folder-plus text-purple-600"></i> Crear Nuevo Curso</h3>
+                    <p class="text-xs text-slate-500 mb-6">Subí un nuevo programa a la plataforma.</p>
+                    
+                    <form id="form-crear-curso" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">ID (ej: ventas1) *</label>
+                                <input type="text" id="nuevo-curso-id" required placeholder="Sin espacios" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none disabled:bg-slate-100"/>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Título Público *</label>
+                                <input type="text" id="nuevo-curso-titulo" required placeholder="Ej: Liderazgo 360" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none"/>
+                            </div>
+                        </div>
+
+                        <!-- DESCRIPCIONES DIVIDIDAS -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Desc. Corta (Tarjetas) *</label>
+                                <textarea id="nuevo-curso-desc" rows="3" required placeholder="Breve resumen de 2 líneas para el catálogo..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none"></textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Desc. Larga (Aula Virtual) *</label>
+                                <textarea id="nuevo-curso-desc-larga" rows="3" required placeholder="Acá podés explayarte. Detallá todo lo que el alumno aprenderá..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Tipo</label>
+                                <select id="nuevo-curso-tipo" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none bg-white">
+                                    <option value="pago">De Pago</option><option value="gratis">Gratis</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Precio</label>
+                                <input type="number" id="nuevo-curso-precio" placeholder="Ej: 50000" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none"/>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Material (PDF)</label>
+                                <input type="url" id="nuevo-curso-pdf" placeholder="Link a Drive" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none"/>
+                            </div>
+                        </div>
+
+                        <!-- CREADOR DE MÓDULOS DINÁMICOS -->
+                        <div class="col-span-full border-t border-purple-100 pt-4 mt-2 bg-slate-50 p-4 rounded-xl border">
+                            <div class="flex items-center justify-between mb-3">
+                                <div>
+                                    <label class="block text-sm font-bold text-slate-800">Clases del Curso</label>
+                                    <p class="text-[10px] text-slate-500">Agregá todos los videos que componen este curso.</p>
+                                </div>
+                                <button type="button" onclick="agregarModuloUI()" class="bg-blue-100 hover:bg-blue-200 text-blue-700 font-bold text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-lg transition-colors shadow-sm">
+                                    + Sumar Clase
+                                </button>
+                            </div>
+                            <!-- Contenedor donde se inyectan las clases -->
+                            <div id="modulos-container" class="space-y-3"></div>
+                        </div>
+
+                        <div class="flex gap-2 mt-2">
+                            <button type="submit" id="btn-submit-curso" class="flex-grow bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs py-3 rounded-xl transition-colors flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Guardar Curso
+                            </button>
+                            <button type="button" onclick="resetearFormularioCurso()" id="btn-cancel-edit" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs py-3 px-4 rounded-xl transition-colors">
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+                    <div id="create-status-msg" class="mt-4 text-xs font-medium hidden"></div>
+                </div>
+
+                <!-- TABLA GESTOR -->
+                <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-sm lg:col-span-12">
+                    <h3 class="font-bold text-slate-900 text-base mb-1 flex items-center gap-2"><i class="fa-solid fa-list-check text-purple-600"></i> Gestor de Cursos</h3>
+                    <div class="overflow-x-auto mt-4">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-200 text-xs text-slate-500 uppercase">
+                                    <th class="py-3 px-4 font-bold">ID</th>
+                                    <th class="py-3 px-4 font-bold">Título</th>
+                                    <th class="py-3 px-4 font-bold">Tipo</th>
+                                    <th class="py-3 px-4 font-bold">Precio</th>
+                                    <th class="py-3 px-4 text-center font-bold">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-courses-list" class="text-sm text-slate-700"></tbody>
+                        </table>
                     </div>
+                </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1">Seleccionar Curso</label>
-                        <select 
-                            id="admin-course-select" 
-                            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-purple-500 focus:outline-none bg-white"
-                        >
-                            <option value="curso1">Programa de Coaching Ejecutivo (curso1)</option>
-                            <option value="curso2">Liderazgo Estratégico (curso2)</option>
-                        </select>
-                    </div>
-
-                    <button 
-                        type="submit" 
-                        class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
-                    >
-                        <i class="fa-solid fa-plus-circle"></i> Asignar Acceso
-                    </button>
-                </form>
-
-                <div id="admin-status-msg" class="mt-4 text-xs font-medium hidden"></div>
             </div>
         </section>
 
     </main>
 
     <!-- Footer Simple -->
-    <footer class="bg-white text-slate-500 py-6 border-t border-slate-200 text-xs text-center">
+    <footer class="bg-white text-slate-500 py-6 border-t border-slate-200 text-xs text-center mt-auto">
         <p>&copy; 2026 Pablo Blestcher. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- LÓGICA GENERAL DE PESTAÑAS (UI) -->
+    <!-- UI Scripts -->
     <script>
-        function toggleUserDropdown(e) {
-            e.stopPropagation();
-            const dropdown = document.getElementById('user-dropdown');
-            dropdown.classList.toggle('hidden');
-        }
-
-        document.addEventListener('click', () => {
-            const dropdown = document.getElementById('user-dropdown');
-            if (dropdown && !dropdown.classList.contains('hidden')) {
-                dropdown.classList.add('hidden');
-            }
-        });
+        function toggleUserDropdown(e) { e.stopPropagation(); document.getElementById('user-dropdown').classList.toggle('hidden'); }
+        document.addEventListener('click', () => { const dd = document.getElementById('user-dropdown'); if (dd && !dd.classList.contains('hidden')) dd.classList.add('hidden'); });
 
         function switchTab(targetTab) {
             const tabs = ['misCursos', 'cursosGratis', 'tiendaCursos', 'panelAdmin'];
-            
             tabs.forEach(tab => {
                 const btn = document.getElementById(`btn-tab-${tab}`);
                 const sec = document.getElementById(`sec-${tab}`);
-                
-                if (btn && sec) {
+                if (sec) {
                     if (tab === targetTab) {
-                        btn.classList.add('active-nav-card');
                         sec.classList.remove('hidden');
+                        if (btn) { tab === 'panelAdmin' ? btn.classList.add('active-admin-card') : btn.classList.add('active-nav-card'); }
                     } else {
-                        btn.classList.remove('active-nav-card');
                         sec.classList.add('hidden');
+                        if (btn) { btn.classList.remove('active-nav-card', 'active-admin-card'); }
                     }
                 }
             });
-
-            const dropdown = document.getElementById('user-dropdown');
-            if (dropdown) dropdown.classList.add('hidden');
         }
+
+        // --- LÓGICA DE MÓDULOS DINÁMICOS (FRONTEND) ---
+        window.moduloCounter = 0;
+        window.agregarModuloUI = function(titulo = '', url = '', duracion = '') {
+            const container = document.getElementById('modulos-container');
+            const id = window.moduloCounter++;
+            const div = document.createElement('div');
+            div.className = "bg-white border border-slate-200 p-3 rounded-xl relative group flex flex-col gap-2 shadow-sm";
+            div.id = `mod-item-${id}`;
+            div.innerHTML = `
+                <button type="button" onclick="document.getElementById('mod-item-${id}').remove()" class="absolute top-2 right-2 text-slate-400 hover:text-red-500 hidden group-hover:block transition-colors"><i class="fa-solid fa-trash"></i></button>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pr-6">
+                    <input type="text" class="mod-titulo px-3 py-2 rounded-lg border border-slate-200 text-xs focus:outline-none focus:ring-1 focus:ring-purple-500" placeholder="Título (Ej: Intro)" value="${titulo}" required>
+                    <input type="text" class="mod-duracion px-3 py-2 rounded-lg border border-slate-200 text-xs focus:outline-none focus:ring-1 focus:ring-purple-500" placeholder="Duración (Ej: 05:30 Min)" value="${duracion}">
+                </div>
+                <input type="url" class="mod-url w-full px-3 py-2 rounded-lg border border-slate-200 text-xs focus:outline-none focus:ring-1 focus:ring-purple-500" placeholder="URL del Video (YouTube/Vimeo)" value="${url}" required>
+            `;
+            container.appendChild(div);
+        };
     </script>
 
-    <!-- FIREBASE AUTH & FIRESTORE LOGIC -->
+    <!-- FIREBASE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
-        import { 
-            getFirestore, 
-            doc, 
-            getDoc, 
-            updateDoc, 
-            arrayUnion, 
-            collection, 
-            query, 
-            where, 
-            getDocs 
-        } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, updateDoc, arrayUnion, collection, query, where, getDocs, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBhlXGxRBvJ1AfUdhyfK8sszZ742emq6SY",
@@ -343,33 +272,14 @@
             projectId: "email-password-29af5",
             storageBucket: "email-password-29af5.firebasestorage.app",
             messagingSenderId: "16571008478",
-            appId: "1:16571008478:web:0a8d45f865cfc1de64494f",
-            measurementId: "G-KKR61PJ4EV"
+            appId: "1:16571008478:web:0a8d45f865cfc1de64494f"
         };
 
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
+        let cursosCache = {}; 
 
-        // Catálogo Maestro de Cursos
-        const CATALOGO_CURSOS = {
-            "curso1": {
-                titulo: "Programa de Coaching Ejecutivo",
-                tipo: "Formación Grabada",
-                descripcion: "Módulos prácticos para potenciar competencias directivas y liderazgo de equipos.",
-                horas: "12 Horas",
-                modulos: "8 Módulos"
-            },
-            "curso2": {
-                titulo: "Liderazgo Estratégico",
-                tipo: "Curso Avanzado",
-                descripcion: "Estrategias de toma de decisiones e innovación institucional.",
-                horas: "10 Horas",
-                modulos: "6 Módulos"
-            }
-        };
-
-        // Control de Sesión
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 document.getElementById('user-display').innerText = user.email;
@@ -379,87 +289,211 @@
             }
         });
 
-        // Cargar Datos y Verificar si es Admin
         async function verificarRolYDatos(user) {
             try {
-                const userDocRef = doc(db, "usuarios", user.uid);
-                const userDocSnap = await getDoc(userDocRef);
-
+                const userDocSnap = await getDoc(doc(db, "usuarios", user.uid));
                 if (userDocSnap.exists()) {
                     const userData = userDocSnap.data();
-
-                    // Si es Admin, habilitamos la 4ta pestaña y la opción en el dropdown
                     if (userData.rol === "admin") {
                         habilitarPanelAdmin();
+                    } else {
+                        await cargarCursosParaAlumnos();
+                        renderizarMisCursos(userData.cursosComprados || []);
                     }
-
-                    // Renderizar los cursos del usuario
-                    renderizarMisCursos(userData.cursosComprados || []);
-                } else {
-                    renderizarMisCursos([]);
                 }
-            } catch (error) {
-                console.error("Error al obtener perfil:", error);
+            } catch (error) { console.error(error); }
+        }
+
+        function habilitarPanelAdmin() {
+            document.getElementById('btn-tab-misCursos').classList.add('hidden');
+            document.getElementById('btn-tab-cursosGratis').classList.add('hidden');
+            document.getElementById('btn-tab-tiendaCursos').classList.add('hidden');
+            document.getElementById('dropdown-student-options').classList.add('hidden');
+
+            document.getElementById('welcome-badge').innerText = "Modo Administrador";
+            document.getElementById('welcome-badge').classList.replace('bg-slate-800', 'bg-purple-800');
+            document.getElementById('welcome-title').innerText = "Panel de Control";
+            document.getElementById('welcome-desc').innerText = "Gestioná los accesos de tus alumnos y todo el contenido de la plataforma.";
+            document.getElementById('welcome-icon').className = "fa-solid fa-user-shield text-purple-900";
+
+            document.getElementById('nav-buttons-container').className = "grid grid-cols-1 md:max-w-xs mb-10";
+            document.getElementById('btn-admin-slot').innerHTML = `<button id="btn-tab-panelAdmin" onclick="switchTab('panelAdmin')" class="bg-white border border-purple-200 hover:border-purple-300 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4 cursor-pointer w-full"><div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold"><i class="fa-solid fa-user-shield"></i></div><div><h3 class="text-base font-bold text-slate-900">Administración</h3><p class="text-purple-600 font-semibold text-xs">Gestión y Creación</p></div></button>`;
+            
+            switchTab('panelAdmin');
+            cargarListaCursosAdmin();
+            
+            // Inicializar con 1 módulo vacío
+            if(document.getElementById('modulos-container').innerHTML.trim() === '') {
+                window.agregarModuloUI();
             }
         }
 
-        // Habilitar la pestaña de Administración
-        function habilitarPanelAdmin() {
-            const navContainer = document.getElementById('nav-buttons-container');
-            const adminSlot = document.getElementById('btn-admin-slot');
-            const dropdownOption = document.getElementById('dropdown-admin-option');
-
-            // Ajustar la grilla para 4 columnas en pantalla grande
-            navContainer.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10";
-
-            // Botón en la grilla principal
-            adminSlot.innerHTML = `
-                <button 
-                    id="btn-tab-panelAdmin" 
-                    onclick="switchTab('panelAdmin')" 
-                    class="bg-white border border-purple-200 hover:border-purple-300 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4 cursor-pointer"
-                >
-                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl shrink-0 font-bold">
-                        <i class="fa-solid fa-user-shield"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-base font-bold text-slate-900">Panel Admin</h3>
-                        <p class="text-purple-600 font-semibold text-xs">Gestión de Alumnos</p>
-                    </div>
-                </button>
-            `;
-
-            // Opción en el menú desplegable
-            dropdownOption.innerHTML = `
-                <button onclick="switchTab('panelAdmin')" class="w-full text-left px-4 py-2.5 text-xs font-semibold text-purple-700 bg-purple-50 hover:bg-purple-100 flex items-center gap-3">
-                    <i class="fa-solid fa-user-shield text-purple-600 w-4"></i> Panel de Gestión
-                </button>
-            `;
+        async function cargarListaCursosAdmin() {
+            const listContainer = document.getElementById('admin-courses-list');
+            const selectContainer = document.getElementById('admin-course-select');
+            try {
+                const snapshot = await getDocs(collection(db, "cursos"));
+                if(snapshot.empty) {
+                    listContainer.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-xs text-slate-500">No hay cursos creados aún.</td></tr>';
+                    selectContainer.innerHTML = '<option value="">No hay cursos creados</option>';
+                    return;
+                }
+                let htmlTabla = ''; let htmlSelect = '';
+                snapshot.forEach(docSnap => {
+                    const c = docSnap.data();
+                    cursosCache[c.id] = c; 
+                    htmlSelect += `<option value="${c.id}">${c.titulo} (${c.id})</option>`;
+                    htmlTabla += `
+                    <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                        <td class="py-3 px-4 font-bold text-purple-700">${c.id}</td>
+                        <td class="py-3 px-4 text-slate-900">${c.titulo}</td>
+                        <td class="py-3 px-4"><span class="${c.tipo === 'gratis' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'} px-2 py-1 rounded text-[10px] font-bold uppercase">${c.tipo}</span></td>
+                        <td class="py-3 px-4">${c.precio ? '$'+c.precio : 'Gratis'}</td>
+                        <td class="py-3 px-4 text-center">
+                            <button onclick="editarCursoAdmin('${c.id}')" class="text-blue-600 hover:text-blue-800 mx-2 transition-colors"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button onclick="eliminarCursoAdmin('${c.id}')" class="text-red-500 hover:text-red-700 mx-2 transition-colors"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>`;
+                });
+                listContainer.innerHTML = htmlTabla;
+                selectContainer.innerHTML = htmlSelect;
+            } catch (error) { console.error(error); }
         }
 
-        // Renderizar Tarjetas de Cursos
+        window.editarCursoAdmin = function(id) {
+            const c = cursosCache[id];
+            if(!c) return;
+
+            document.getElementById('form-crear-titulo').innerHTML = `<i class="fa-solid fa-pen-to-square text-blue-600"></i> Editando: ${c.titulo}`;
+            document.getElementById('nuevo-curso-id').value = c.id;
+            document.getElementById('nuevo-curso-id').disabled = true; 
+            document.getElementById('nuevo-curso-titulo').value = c.titulo;
+            document.getElementById('nuevo-curso-desc').value = c.descripcion;
+            document.getElementById('nuevo-curso-desc-larga').value = c.descripcionLarga || '';
+            document.getElementById('nuevo-curso-tipo').value = c.tipo;
+            document.getElementById('nuevo-curso-precio').value = c.precio || '';
+            document.getElementById('nuevo-curso-pdf').value = c.pdf || '';
+
+            // Cargar los módulos
+            document.getElementById('modulos-container').innerHTML = '';
+            if (c.modulosDinámicos && c.modulosDinámicos.length > 0) {
+                c.modulosDinámicos.forEach(m => window.agregarModuloUI(m.titulo, m.url, m.duracion));
+            } else if (c.video) {
+                window.agregarModuloUI("Clase Principal", c.video, c.horas || '');
+            } else {
+                window.agregarModuloUI();
+            }
+
+            document.getElementById('btn-submit-curso').innerHTML = '<i class="fa-solid fa-floppy-disk"></i> Guardar Cambios';
+            document.getElementById('btn-cancel-edit').classList.remove('hidden');
+            window.scrollTo({ top: document.getElementById('form-crear-curso').offsetTop - 100, behavior: 'smooth' });
+        };
+
+        window.resetearFormularioCurso = function() {
+            document.getElementById('form-crear-curso').reset();
+            document.getElementById('nuevo-curso-id').disabled = false;
+            document.getElementById('form-crear-titulo').innerHTML = `<i class="fa-solid fa-folder-plus text-purple-600"></i> Crear Nuevo Curso`;
+            document.getElementById('btn-submit-curso').innerHTML = '<i class="fa-solid fa-cloud-arrow-up"></i> Guardar Curso';
+            document.getElementById('btn-cancel-edit').classList.add('hidden');
+            document.getElementById('modulos-container').innerHTML = '';
+            window.agregarModuloUI(); // Dejar uno vacío
+        }
+
+        document.getElementById('form-crear-curso').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('nuevo-curso-id').value.trim().toLowerCase();
+            const titulo = document.getElementById('nuevo-curso-titulo').value.trim();
+            const descCorta = document.getElementById('nuevo-curso-desc').value.trim();
+            const descLarga = document.getElementById('nuevo-curso-desc-larga').value.trim();
+            const tipo = document.getElementById('nuevo-curso-tipo').value;
+            const precio = document.getElementById('nuevo-curso-precio').value;
+            const pdf = document.getElementById('nuevo-curso-pdf').value.trim();
+
+            // Recopilar módulos
+            const modulosNodos = document.querySelectorAll('#modulos-container > div');
+            const modulosGuardar = [];
+            modulosNodos.forEach(nodo => {
+                const mTitulo = nodo.querySelector('.mod-titulo').value.trim();
+                const mUrl = nodo.querySelector('.mod-url').value.trim();
+                if(mTitulo && mUrl) {
+                    modulosGuardar.push({
+                        titulo: mTitulo,
+                        duracion: nodo.querySelector('.mod-duracion').value.trim(),
+                        url: mUrl
+                    });
+                }
+            });
+
+            const statusMsg = document.getElementById('create-status-msg');
+            statusMsg.classList.remove('hidden', 'text-green-600', 'text-red-600');
+            statusMsg.innerText = "Guardando...";
+
+            try {
+                await setDoc(doc(db, "cursos", id), {
+                    id: id,
+                    titulo: titulo,
+                    descripcion: descCorta,
+                    descripcionLarga: descLarga,
+                    tipo: tipo,
+                    precio: precio ? Number(precio) : 0,
+                    pdf: pdf,
+                    modulosDinámicos: modulosGuardar,
+                    fechaActualizacion: new Date().toISOString()
+                }, { merge: true });
+
+                statusMsg.className = "mt-4 text-xs font-bold text-green-600";
+                statusMsg.innerText = `✅ ¡Curso guardado con éxito!`;
+                
+                window.resetearFormularioCurso();
+                cargarListaCursosAdmin(); 
+                setTimeout(() => statusMsg.classList.add('hidden'), 4000);
+            } catch (error) {
+                statusMsg.className = "mt-4 text-xs font-bold text-red-600";
+                statusMsg.innerText = "❌ Error al guardar.";
+            }
+        });
+
+        window.eliminarCursoAdmin = async function(id) {
+            if(confirm(`⚠️ ¿Eliminar curso "${id}"?`)) {
+                try { await deleteDoc(doc(db, "cursos", id)); cargarListaCursosAdmin(); } catch(e) {}
+            }
+        };
+
+        document.getElementById('form-asignar-curso').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('admin-student-email').value.trim();
+            const courseId = document.getElementById('admin-course-select').value;
+            const statusMsg = document.getElementById('admin-status-msg');
+            if(!courseId) return;
+            statusMsg.classList.remove('hidden', 'text-green-600', 'text-red-600');
+            try {
+                const q = query(collection(db, "usuarios"), where("email", "==", email));
+                const snap = await getDocs(q);
+                if (snap.empty) { statusMsg.className = "mt-4 text-xs font-bold text-red-600"; statusMsg.innerText = "❌ Email no encontrado."; return; }
+                let docId = ""; snap.forEach((d) => { docId = d.id; });
+                await updateDoc(doc(db, "usuarios", docId), { cursosComprados: arrayUnion(courseId) });
+                statusMsg.className = "mt-4 text-xs font-bold text-green-600"; statusMsg.innerText = `✅ ¡Curso asignado!`;
+                e.target.reset(); setTimeout(() => statusMsg.classList.add('hidden'), 4000);
+            } catch (error) { statusMsg.className = "mt-4 text-xs font-bold text-red-600"; statusMsg.innerText = "❌ Error al asignar."; }
+        });
+
+        async function cargarCursosParaAlumnos() {
+            try {
+                const snapshot = await getDocs(collection(db, "cursos"));
+                snapshot.forEach(docSnap => { cursosCache[docSnap.id] = docSnap.data(); });
+            } catch(e) {}
+        }
+
         function renderizarMisCursos(cursos) {
             const container = document.getElementById('mis-cursos-container');
-
+            if (!container) return; 
             if (cursos.length === 0) {
-                container.innerHTML = `
-                    <div class="col-span-full bg-white border border-slate-200 p-6 rounded-2xl text-center">
-                        <p class="text-sm font-semibold text-slate-700">Aún no tenés cursos asignados.</p>
-                        <p class="text-xs text-slate-500 mt-1">Explorá la Tienda de Cursos para adquirir tu primera formación.</p>
-                    </div>
-                `;
+                container.innerHTML = `<div class="col-span-full bg-white border border-slate-200 p-6 rounded-2xl text-center"><p class="text-sm font-semibold text-slate-700">Aún no tenés cursos asignados.</p></div>`;
                 return;
             }
-
             container.innerHTML = cursos.map(cursoId => {
-                const info = CATALOGO_CURSOS[cursoId] || {
-                    titulo: cursoId,
-                    tipo: "Programa Activo",
-                    descripcion: "Contenido asignado a tu cuenta.",
-                    horas: "A tu ritmo",
-                    modulos: "Completo"
-                };
-
+                const info = cursosCache[cursoId] || { titulo: cursoId, tipo: "Programa Activo", descripcion: "Contenido asignado.", modulosDinámicos: [] };
+                const cantidadClases = info.modulosDinámicos ? info.modulosDinámicos.length : 1;
                 return `
                     <article class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
                         <div>
@@ -469,78 +503,21 @@
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold text-slate-900 text-sm mb-1">${info.titulo}</h4>
-                                <p class="text-xs text-slate-500 mb-2">${info.tipo}</p>
                                 <p class="text-xs text-slate-600 line-clamp-2 mb-4">${info.descripcion}</p>
-                                <div class="text-[11px] text-slate-500 space-x-3 mb-2">
-                                    <span><i class="fa-regular fa-clock mr-1"></i> ${info.horas}</span>
-                                    <span><i class="fa-solid fa-book mr-1"></i> ${info.modulos}</span>
+                                <div class="text-[11px] text-slate-500 mb-2">
+                                    <span><i class="fa-solid fa-play mr-1"></i> ${cantidadClases} ${cantidadClases === 1 ? 'Clase' : 'Clases'}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="p-4 pt-0">
-                            <button onclick="alert('Ingresando al contenido de ${info.titulo}...');" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-2 px-4 rounded-xl transition-colors">
-                                Ingresar »
-                            </button>
+                            <button onclick="window.location.href='curso.html?id=${cursoId}'" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-2 px-4 rounded-xl">Ingresar »</button>
                         </div>
                     </article>
                 `;
             }).join('');
         }
 
-        // LÓGICA DE ASIGNACIÓN MANUAL DE CURSOS (FORMULARIO ADMIN)
-        const formAsignar = document.getElementById('form-asignar-curso');
-        if (formAsignar) {
-            formAsignar.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const studentEmail = document.getElementById('admin-student-email').value.trim();
-                const courseId = document.getElementById('admin-course-select').value;
-                const statusMsg = document.getElementById('admin-status-msg');
-
-                statusMsg.classList.remove('hidden', 'text-green-600', 'text-red-600');
-                statusMsg.innerText = "Buscando alumno y asignando curso...";
-
-                try {
-                    // 1. Buscar en la colección 'usuarios' el documento que tenga ese email
-                    const q = query(collection(db, "usuarios"), where("email", "==", studentEmail));
-                    const querySnapshot = await getDocs(q);
-
-                    if (querySnapshot.empty) {
-                        statusMsg.className = "mt-4 text-xs font-bold text-red-600";
-                        statusMsg.innerText = "❌ No se encontró ningún alumno registrado con el email: " + studentEmail;
-                        return;
-                    }
-
-                    // 2. Tomar el primer documento coincidente y sumarle el curso
-                    let docId = "";
-                    querySnapshot.forEach((doc) => {
-                        docId = doc.id;
-                    });
-
-                    const studentDocRef = doc(db, "usuarios", docId);
-                    await updateDoc(studentDocRef, {
-                        cursosComprados: arrayUnion(courseId)
-                    });
-
-                    statusMsg.className = "mt-4 text-xs font-bold text-green-600";
-                    statusMsg.innerText = `✅ ¡Curso (${courseId}) asignado con éxito a ${studentEmail}!`;
-                    formAsignar.reset();
-
-                } catch (error) {
-                    console.error("Error al asignar curso:", error);
-                    statusMsg.className = "mt-4 text-xs font-bold text-red-600";
-                    statusMsg.innerText = "❌ Error al intentar asignar el curso.";
-                }
-            });
-        }
-
-        // Cierre de Sesión Oficial
-        window.handleLogout = function() {
-            signOut(auth).then(() => {
-                window.location.href = "campo_de_coach.html";
-            }).catch((error) => {
-                alert("Error al cerrar sesión: " + error.message);
-            });
-        };
+        window.handleLogout = function() { signOut(auth).then(() => { window.location.href = "campo_de_coach.html"; }); };
     </script>
 </body>
 </html>
